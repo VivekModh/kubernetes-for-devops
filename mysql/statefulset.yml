@@ -1,9 +1,8 @@
-kind: StatefulSet
 apiVersion: apps/v1
+kind: StatefulSet
 metadata:
   name: mysql-statefulset
   namespace: mysql
-
 spec:
   serviceName: mysql-service
   replicas: 3
@@ -29,11 +28,7 @@ spec:
             memory: 512Mi
         env:
         - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: MYSQL_ROOT_PASSWORD
-
+          value: root
         - name: MYSQL_DATABASE
           valueFrom:
             configMapKeyRef:
@@ -42,7 +37,6 @@ spec:
         volumeMounts:
         - name: mysql-data
           mountPath: /var/lib/mysql
-
   volumeClaimTemplates:
   - metadata:
       name: mysql-data
