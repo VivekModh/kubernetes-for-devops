@@ -114,3 +114,7 @@ If you face conflicts with ports (80/443):
 sudo lsof -i :80
 sudo systemctl stop apache2
 sudo systemctl disable apache2
+
+
+For Load generator this command i used
+kubectl run -i --tty load-generator --image=busybox -n apache /bin/sh
