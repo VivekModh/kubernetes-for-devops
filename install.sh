@@ -1,4 +1,4 @@
-#!/bin/bash
+l#!/bin/bash
 
 set -e  # Exit immediately if a command exits with a non-zero status
 set -o pipefail
